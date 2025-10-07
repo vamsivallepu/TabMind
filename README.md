@@ -1,4 +1,4 @@
-# LLM Tab Grouper
+# TabMind
 
 A Chrome extension that automatically groups open tabs by topic using Google Gemini. The user supplies their own Gemini API key, which is stored locally via `chrome.storage` and never leaves the device except for requests sent directly to the Gemini API.
 
