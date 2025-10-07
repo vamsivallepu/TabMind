@@ -45,7 +45,7 @@ A Chrome extension that automatically groups open tabs by topic using Google Gem
 
 ## Implementation Notes
 - Uses the [OpenAI JavaScript library](https://platform.openai.com/docs/libraries) with Google Gemini's OpenAI-compatible API endpoint.
-- The Gemini API is called with the `gemini-2.0-flash-lite` model by default. You can adjust the `GEMINI_MODEL` constant in `src/background.js`.
+- The Gemini API is called with the `gemini-2.5-flash-lite` model by default. You can adjust the `GEMINI_MODEL` constant in `src/background.js`.
 - Tabs are grouped according to the JSON structure returned by the LLM. Invalid responses will surface an error in the popup.
 - Pinned tabs are left untouched to avoid disrupting the user's workspace.
 - When "Regroup all" is unchecked (default):
@@ -58,7 +58,7 @@ A Chrome extension that automatically groups open tabs by topic using Google Gem
 - The checkbox state is persisted in local storage for convenience.
 
 ## Privacy
-- The API key is saved in local extension storage. Clear it from the options page at any time.
+- The API key is saved in local extension storage. Clear it from extension at any time to permanatly remove it everywhere.
 - Only the minimal tab metadata required for grouping (title and URL) is sent to Google Gemini.
 
 ## Limitations
