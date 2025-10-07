@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>LLM Tab Grouper</title>
+  <style>
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      margin: 0;
+      padding: 16px;
+      width: 320px;
+      background: #f7f7f7;
+      color: #1f1f1f;
+    }
+
+    h1 {
+      font-size: 1.15rem;
+      margin: 0 0 12px;
+      text-align: center;
+    }
+
+    .api-key-section {
+      margin-bottom: 16px;
+      padding: 12px;
+      background: #fff;
+      border-radius: 6px;
+      border: 1px solid #e0e0e0;
+    }
+
+    .api-key-section.hidden {
+      display: none;
+    }
+
+    label {
+      display: block;
+      font-size: 0.9rem;
+      font-weight: 600;
+      margin-bottom: 6px;
+      color: #333;
+    }
+
+    input[type="password"] {
+      width: 100%;
+      padding: 8px 10px;
+      font-size: 0.9rem;
+      border-radius: 4px;
+      border: 1px solid #ccc;
+      box-sizing: border-box;
+      margin-bottom: 8px;
+    }
+
+    .button-row {
+      display: flex;
+      gap: 8px;
+    }
+
+    button {
+      padding: 8px 12px;
+      border-radius: 6px;
+      border: none;
+      font-size: 0.9rem;
+      cursor: pointer;
+      transition: background 0.2s ease;
+    }
+
+    button.full-width {
+      width: 100%;
+      margin-top: 8px;
+    }
+
+    button.primary {
+      background: #005ab5;
+      color: #fff;
+    }
+
+    button.primary:hover {
+      background: #00468b;
+    }
+
+    button.secondary {
+      background: #e5e5e5;
+      color: #222;
+    }
+
+    button.secondary:hover {
+      background: #d4d4d4;
+    }
+
+    button.danger {
+      background: #c62828;
+      color: #fff;
+    }
+
+    button.danger:hover {
+      background: #ab1f1f;
+    }
+
+    button.small {
+      flex: 1;
+      font-size: 0.85rem;
+      padding: 6px 8px;
+    }
+
+    .toggle-link {
+      color: #005ab5;
+      cursor: pointer;
+      font-size: 0.85rem;
+      text-decoration: underline;
+      margin-top: 8px;
+      display: block;
+      text-align: center;
+    }
+
+    .toggle-link:hover {
+      color: #00468b;
+    }
+
+    p.status {
+      min-height: 1.5em;
+      margin: 12px 0 0;
+      font-size: 0.9rem;
+    }
+
+    p.status.error {
+      color: #c62828;
+    }
+
+    p.status.success {
+      color: #256029;
+    }
+
+    .option-row {
+      margin: 12px 0;
+      padding: 10px 12px;
+      background: #fff;
+      border-radius: 6px;
+      border: 1px solid #e0e0e0;
+    }
+
+    .option-row label {
+      display: flex;
+      align-items: center;
+      font-weight: 400;
+      font-size: 0.9rem;
+      cursor: pointer;
+      margin: 0;
+    }
+
+    .option-row input[type="checkbox"] {
+      margin: 0 8px 0 0;
+      cursor: pointer;
+      width: 16px;
+      height: 16px;
+    }
+  </style>
+</head>
+
+<body>
+  <h1>LLM Tab Grouper</h1>
+
+  <div id="apiKeySection" class="api-key-section hidden">
+    <label for="apiKey">Gemini API Key</label>
+    <input id="apiKey" type="password" autocomplete="off" spellcheck="false" placeholder="AIza..." />
+    <div class="button-row">
+      <button id="saveBtn" class="primary small">Save</button>
+      <button id="clearBtn" class="danger small">Clear</button>
+    </div>
+  </div>
+
+  <div class="option-row">
+    <label>
+      <input type="checkbox" id="regroupAll" />
+      Regroup all tabs (including existing groups)
+    </label>
+  </div>
+
+  <button id="groupTabs" class="primary full-width">Group Tabs</button>
+  <a id="toggleApiKey" class="toggle-link">Set API Key</a>
+  <p id="status" class="status"></p>
+  <script type="module" src="popup.js"></script>
+</body>
+
+</html>

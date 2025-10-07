@@ -1,0 +1,21 @@
+{
+  "name": "tab_grouper",
+  "version": "1.0.0",
+  "type": "module",
+  "description": "A Chrome extension that automatically groups open tabs by topic using an OpenAI model. The user supplies their own OpenAI API key, which is stored locally via `chrome.storage` and never leaves the device except for requests sent directly to the OpenAI API.",
+  "main": "background.js",
+  "scripts": {
+    "build": "node build.js",
+    "watch": "node build.js --watch",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "openai": "^6.2.0"
+  },
+  "devDependencies": {
+    "esbuild": "^0.25.10"
+  }
+}
